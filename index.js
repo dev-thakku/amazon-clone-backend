@@ -4,7 +4,6 @@ const { response } = require("express");
 const stripe = require("stripe")(
   "sk_test_51HQCEqEkyZimy8Tzmm0K7OiIn4d9FbAJZxI51R4fZjuCGIuNtiz1ULdc1ECJ33obiYAMvwx2T8ckMqzEeq8uWhc500Df5OFExA"
 );
-const port = 3001;
 
 // - API
 
@@ -36,6 +35,5 @@ app.post("/payments/create", async (request, response) => {
 
 // - Listen Command
 
-app.listen(port, () => {
-  console.log(`Amazon-Backend listening at http://localhost:${port}`);
-});
+app.listen(process.env.PORT || 3000,
+  () => console.log("Server is running..."));
